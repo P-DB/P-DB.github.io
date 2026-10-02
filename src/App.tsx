@@ -56,11 +56,11 @@ function App() {
 
         <section className="section" id="work" aria-labelledby="work-title">
           <h2 id="work-title" className="section__title">
-            Work experience <span className="section__count">({experiences.length})</span>
+            Work experience
           </h2>
           <ol className="jobs">
             {experiences.map((item, i) => (
-              <ExperienceItem key={`${item.company}-${item.start}`} item={item} index={i} />
+              <ExperienceItem key={`${item.company}-${item.start}`} item={item} defaultOpen={i === 0} />
             ))}
           </ol>
         </section>

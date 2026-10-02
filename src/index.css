@@ -230,11 +230,6 @@ main {
   border-top: 0;
 }
 
-.section__count {
-  font-family: var(--font-mono);
-  font-size: 0.4em;
-  vertical-align: super;
-}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -454,64 +449,191 @@ main {
 }
 
 /* ---------- Jobs ---------- */
+/* One bordered block like the skills grid; each row is an accordion */
 .jobs {
-  display: grid;
-  gap: 2rem;
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.job > article {
-  display: grid;
-  grid-template-columns: 1fr;
+  background: var(--white);
   border: var(--border);
   box-shadow: var(--shadow);
-  background: var(--white);
 }
 
-.job__meta {
+.job + .job {
+  border-top: 1.5px solid var(--black);
+}
+
+.job__heading {
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: none;
+}
+
+.job__toggle {
+  display: grid;
+  grid-template-areas:
+    'years icon'
+    'main main';
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  width: 100%;
+  padding: 1.25rem;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.job__toggle:hover,
+.job[data-open] .job__toggle:hover {
+  background: var(--violet);
+  color: var(--black);
+}
+
+/* Blue on violet is too low-contrast, so the year goes black on hover */
+.job .job__toggle:hover .job__start {
+  color: var(--black);
+}
+
+.job__toggle:focus-visible {
+  outline-offset: -6px;
+}
+
+.job[data-open] .job__toggle {
+  background: var(--black);
+  color: var(--white);
+  --focus: var(--violet);
+}
+
+.job__years {
+  grid-area: years;
   display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.25rem 1rem;
-  padding: 1rem 1.25rem;
-  background: var(--grey);
-  border-bottom: var(--border);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.875rem;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
 }
 
-.job__index {
+.job__start {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
   line-height: 1;
   color: var(--blue);
 }
 
-.job__body {
-  padding: 1.25rem;
+.job[data-open] .job__start {
+  color: var(--violet);
 }
 
-.job__title {
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
-  line-height: 1.1;
-}
-
-.job__company {
-  display: block;
-  margin-top: 0.35rem;
-  font-family: var(--font-mono);
+.job__end {
   font-weight: 700;
-  font-size: 0.6em;
-  text-transform: none;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.job__main {
+  grid-area: main;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.job__role {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.job__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.job__tag {
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+}
+
+.job__tag--company {
+  color: var(--white);
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+/* Square +/- toggle indicator */
+.job__icon {
+  grid-area: icon;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid currentColor;
+}
+
+.job__icon::before,
+.job__icon::after {
+  content: '';
+  position: absolute;
+  inset: 50% 25% auto;
+  height: 3px;
+  margin-top: -1.5px;
+  background: currentColor;
+}
+
+.job__icon::after {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.job[data-open] .job__icon::after {
+  transform: none;
+}
+
+/* Accordion: animate the grid row from 0fr to 1fr. Visibility keeps the
+   collapsed content out of the tab order and accessibility tree. */
+.job__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.35s ease,
+    visibility 0s linear 0.35s;
+}
+
+.job[data-open] .job__panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.35s ease,
+    visibility 0s;
+}
+
+.job__panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .job__highlights {
-  margin: 1.25rem 0 0;
-  padding: 0;
+  padding: 1.25rem 1.25rem 0;
+  border-top: 1.5px solid var(--black);
+}
+
+.job__panel-inner > :last-child {
+  margin-bottom: 1.25rem;
+}
+
+.job__highlights {
+  margin: 0;
   list-style: none;
+}
+
+.job__highlights li {
+  max-width: 70ch;
 }
 
 .job__highlights li {
@@ -520,7 +642,7 @@ main {
 }
 
 .job__highlights li + li {
-  margin-top: 0.35rem;
+  margin-top: 0.6rem;
 }
 
 .job__highlights li::before {
@@ -530,26 +652,36 @@ main {
   color: var(--blue);
 }
 
+.job__link {
+  display: inline-block;
+  margin: 1.25rem 0 0 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 @media (min-width: 48rem) {
-  .job > article {
-    grid-template-columns: 14rem 1fr;
-  }
-
-  .job__meta {
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom: 0;
-    border-right: var(--border);
-    padding: 1.5rem;
-  }
-
-  .job__index {
-    font-size: 3.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .job__body {
+  .job__toggle {
+    grid-template-areas: 'years main icon';
+    grid-template-columns: 11rem 1fr auto;
     padding: 1.5rem 2rem;
+  }
+
+  .job__years {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  /* Align highlights with the role column */
+  .job__highlights {
+    padding: 1.5rem 2rem 0 calc(2rem + 11rem + 1.5rem);
+  }
+
+  .job__link {
+    margin-left: calc(2rem + 11rem + 1.5rem);
+  }
+
+  .job__panel-inner > :last-child {
+    margin-bottom: 2rem;
   }
 }
 
