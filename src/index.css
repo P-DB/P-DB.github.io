@@ -198,3 +198,226 @@ main:focus {
   color: var(--violet);
 }
 
+/* ---------- Layout ---------- */
+main {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  border-top: var(--border);
+  scroll-margin-top: 4rem;
+}
+
+.section__title {
+  color: var(--blue);
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  margin-bottom: 2rem;
+}
+
+.section__count {
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  vertical-align: super;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(3rem, 12vw, 9rem);
+  scroll-margin-top: 4rem;
+  color: var(--white);
+  background: var(--black);
+  /* Full-bleed black without causing horizontal scroll */
+  box-shadow: 0 0 0 100vmax var(--black);
+  clip-path: inset(0 -100vmax);
+  position: relative;
+  --focus: var(--violet);
+}
+
+/* Full-bleed blue bottom line, matching the header */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--blue);
+  /* Extend sideways via shadow (no scroll overflow), clipped to the line's height */
+  box-shadow: 0 0 0 100vmax var(--blue);
+  clip-path: inset(0 -100vmax);
+}
+
+.hero + .section {
+  border-top: 0;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  overflow-wrap: normal;
+}
+
+.hero__logo {
+  --frame: max(4px, 0.04em);
+  --split: 0.035em;
+  position: relative;
+  isolation: isolate;
+  align-self: flex-start;
+  /* Boxed like the header logo, with the border scaled to the type */
+  padding: 0.08em 0.12em 0.1em;
+  /* White frame drawn as an outline so it paints above the coloured copies */
+  border: var(--frame) solid transparent;
+  outline: var(--frame) solid var(--white);
+  outline-offset: calc(var(--frame) * -1);
+  font-family: var(--font-display);
+  font-size: clamp(4.25rem, 21vw, 15rem);
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+}
+
+.hero__logo-text {
+  display: inline-block;
+  color: var(--white);
+  /* Chromatic aberration: violet and indigo ghosts either side of the glyphs */
+  text-shadow:
+    calc(var(--split) * -1) 0 0.02em var(--glitch-violet),
+    var(--split) 0 0.02em var(--glitch-indigo);
+}
+
+/* Violet and indigo copies of the frame, offset like the letters' ghosts */
+.hero__logo::before,
+.hero__logo::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--frame) * -1);
+  z-index: -1;
+  border: var(--frame) solid var(--glitch-violet);
+  transform: translateX(calc(var(--split) * -1));
+}
+
+.hero__logo::after {
+  border-color: var(--glitch-indigo);
+  transform: translateX(var(--split));
+}
+
+.glitch-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Applied to the box so the frame tears and splits with the letters */
+  .hero__logo {
+    filter: url(#glitch);
+    animation: glitch-split 4s steps(1) infinite;
+  }
+}
+
+/* Keep in step with the displacement bursts in GlitchFilter (4s cycle) */
+@keyframes glitch-split {
+  0%,
+  36%,
+  56%,
+  91%,
+  100% {
+    --split: 0.035em;
+    transform: none;
+  }
+  37% {
+    --split: 0.09em;
+    transform: translateX(-0.02em) skewX(-4deg);
+  }
+  45% {
+    --split: 0.06em;
+    transform: translateX(0.015em);
+  }
+  46% {
+    --split: 0.12em;
+    transform: translateX(-0.03em) skewX(6deg);
+  }
+  50% {
+    --split: 0.05em;
+    transform: none;
+  }
+  92% {
+    --split: 0.08em;
+    transform: translateX(0.02em) skewX(-3deg);
+  }
+}
+
+@property --split {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0.035em;
+}
+
+.hero__name {
+  /* Same treatment as .hero__eyebrow, slightly larger */
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 4vw, 2.25rem);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.hero__intro {
+  max-width: 44ch;
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding-left: 1.25rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.5;
+  border-left: 6px solid var(--blue);
+}
+
+/* Terminal-style block cursor (decorative; static when motion is reduced) */
+.hero__intro::after {
+  content: '';
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 0.3em;
+  vertical-align: text-bottom;
+  /* Same glitch as the logo: white block with violet/indigo ghosts.
+     --split is scaled up because the cursor is much smaller than the logo. */
+  background: var(--white);
+  box-shadow:
+    calc(var(--split) * -4) 0 0 var(--glitch-violet),
+    calc(var(--split) * 4) 0 0 var(--glitch-indigo);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__intro::after {
+    filter: url(#glitch);
+    animation:
+      cursor-blink 1.1s steps(1) infinite,
+      glitch-split 4s steps(1) infinite;
+  }
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
