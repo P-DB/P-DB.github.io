@@ -2,6 +2,22 @@ import { awards, experiences, profile, skills } from './data'
 import { ExperienceItem } from './components/ExperienceItem'
 import { GlitchFilter } from './components/GlitchFilter'
 
+// Wrap each listed phrase found in `text` in a <mark> tag
+function highlight(text: string, phrases: string[]) {
+  const pattern = new RegExp(`(${phrases.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi')
+  return text.split(pattern).map((part, i) =>
+    i % 2 === 1 ? (
+      <mark key={i} className="about__mark">
+        {part}
+      </mark>
+    ) : (
+      part
+    ),
+  )
+}
+
+const [lead, ...rest] = profile.bio
+
 function App() {
   return (
     <>
@@ -39,19 +55,32 @@ function App() {
           <p className="hero__intro">{profile.intro}</p>
         </section>
 
-        <section className="section" id="about" aria-labelledby="about-title">
+        <section className="section section--grey" id="about" aria-labelledby="about-title">
           <h2 id="about-title" className="section__title">About</h2>
-          <div className="about">
-            {profile.bio.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-            <h3 className="about__subtitle">Languages</h3>
-            <ul className="about__languages">
-              {profile.languages.map((l) => (
-                <li key={l}>{l}</li>
-              ))}
-            </ul>
-          </div>
+          <p className="about__lead">{highlight(lead, profile.bioHighlights)}</p>
+          {rest.map((p) => (
+            <p key={p} className="about__text">
+              {p}
+            </p>
+          ))}
+          <dl className="facts" aria-label="At a glance">
+            <div className="fact">
+              <dt className="fact__label">Years building interfaces</dt>
+              <dd className="fact__value">{profile.yearsOfExperience}</dd>
+            </div>
+            {/* Both languages share one wide cell; each pair mirrors the fact layout */}
+            <div className="fact fact--wide">
+              <dt className="visually-hidden">Languages</dt>
+              <dd className="fact__langs">
+                {profile.languages.map((l) => (
+                  <span key={l.code} className="fact__lang">
+                    <span className="fact__value">{l.name}</span>{' '}
+                    <span className="fact__label">{l.level}</span>
+                  </span>
+                ))}
+              </dd>
+            </div>
+          </dl>
         </section>
 
         <section className="section" id="work" aria-labelledby="work-title">

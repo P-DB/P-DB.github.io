@@ -23,7 +23,13 @@ export const profile = {
     'I have a proven track record of leading design system implementations and driving WCAG accessibility standards across both web and mobile applications.',
     'I bridge design and engineering to deliver consistent, accessible and high-craft digital products — from Figma tokens to production components.',
   ],
-  languages: ['Italian — Native', 'English — Professional working proficiency (B2)'],
+  // Phrases highlighted as tags in the first bio paragraph
+  bioHighlights: ['design system', 'WCAG accessibility'],
+  yearsOfExperience: '10+',
+  languages: [
+    { code: 'IT', name: 'Italian', level: 'Native' },
+    { code: 'EN', name: 'English', level: 'Professional working proficiency [B2]' },
+  ],
   email: 'dibartolomeo.patrizio@gmail.com',
   links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/p-db' }],
 }
