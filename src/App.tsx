@@ -110,16 +110,14 @@ function App() {
           </div>
         </section>
 
-        <section className="section" id="awards" aria-labelledby="awards-title">
+        <section className="section section--grey" id="awards" aria-labelledby="awards-title">
           <h2 id="awards-title" className="section__title">Awards</h2>
           <ul className="awards">
             {awards.map((a) => (
-              <li key={a.title} className="awards__item">
-                <span className="awards__year">{a.year}</span>
-                <div>
-                  <h3 className="awards__title">{a.title}</h3>
-                  <p>{a.text}</p>
-                </div>
+              <li key={a.title} className="award">
+                <h3 className="award__title">{a.title}</h3>
+                <p className="award__year">{a.year}</p>
+                <p className="award__text">{a.text}</p>
               </li>
             ))}
           </ul>

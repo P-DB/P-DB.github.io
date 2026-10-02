@@ -816,32 +816,38 @@ main {
 }
 
 /* ---------- Awards ---------- */
+/* One bordered block split into cells, like the skills grid */
 .awards {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
+  background: var(--white);
+  border: var(--border);
+  box-shadow: var(--shadow);
 }
 
-.awards__item {
+.award {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1.5rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 1.5px solid var(--black);
 }
 
-.awards__year {
+/* Year sits visually above the title; the heading stays first in the DOM */
+.award__year {
+  order: -1;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1;
-  -webkit-text-stroke: 2px var(--blue);
-  color: transparent;
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 0.9;
+  color: var(--blue);
 }
 
-.awards__title {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  margin-bottom: 0.25rem;
+.award__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  line-height: 1.1;
 }
 
 /* ---------- Footer ---------- */
