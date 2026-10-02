@@ -604,3 +604,63 @@ main {
   margin-bottom: 0.25rem;
 }
 
+/* ---------- Footer ---------- */
+.site-footer {
+  /* Full-bleed background, content aligned with main */
+  padding-block: clamp(3rem, 8vw, 6rem) 2rem;
+  padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+  background: var(--black);
+  color: var(--white);
+  border-top: 3px solid var(--blue);
+  --focus: var(--violet);
+  scroll-margin-top: 4rem;
+}
+
+.site-footer a:hover {
+  background: var(--violet);
+  color: var(--black);
+}
+
+.site-footer__title {
+  color: var(--violet);
+  font-size: clamp(2.5rem, 10vw, 7rem);
+}
+
+.site-footer__email {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: clamp(1rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__email:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--blue);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.site-footer__links a {
+  display: inline-block;
+  padding-block: 0.5rem;
+}
+
+.site-footer__copy {
+  margin-top: 3rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
