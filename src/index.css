@@ -421,3 +421,22 @@ main {
   }
 }
 
+/* ---------- About ---------- */
+.about {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 60ch;
+  font-size: 1.125rem;
+}
+
+.about__subtitle {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.about__languages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
