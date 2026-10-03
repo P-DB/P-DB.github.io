@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="#ffffff" stroke="#1f4dff" stroke-width="4"/><text x="16" y="20" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="10" fill="#1f4dff">P-DB</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- The hero's terminal cursor: white block with violet/indigo ghosts on black -->
+  <rect width="32" height="32" fill="#000"/>
+  <rect x="7" y="5" width="14" height="22" fill="#8b5cff"/>
+  <rect x="11" y="5" width="14" height="22" fill="#4b4dff"/>
+  <rect x="9" y="5" width="14" height="22" fill="#fff"/>
+</svg>
