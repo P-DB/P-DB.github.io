@@ -143,7 +143,17 @@ main:focus {
   background-size: 220px, 260px, 160px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* No grain on touch devices: keeps rendering light on phones */
+@media (hover: none), (pointer: coarse) {
+  .site-header::before,
+  .hero::before,
+  .site-footer::before {
+    content: none;
+  }
+}
+
+/* Desktop only: the grain shifts like film */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .site-header::before,
   .hero::before,
   .site-footer::before {
@@ -388,8 +398,16 @@ main > .section {
 @media (prefers-reduced-motion: no-preference) {
   /* Applied to the box so the frame tears and splits with the letters */
   .hero__logo {
-    filter: url(#glitch);
     animation: glitch-split 4s steps(1) infinite;
+  }
+}
+
+/* The SVG displacement filter is costly to re-render; mobile WebKit (all iOS
+   browsers) can crash and reload the tab with it, so desktop pointers only */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .hero__logo,
+  .hero__intro::after {
+    filter: url(#glitch);
   }
 }
 
@@ -471,7 +489,6 @@ main > .section {
 
 @media (prefers-reduced-motion: no-preference) {
   .hero__intro::after {
-    filter: url(#glitch);
     animation:
       cursor-blink 1.1s steps(1) infinite,
       glitch-split 4s steps(1) infinite;
