@@ -40,6 +40,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* No rubber-band bounce at the top/bottom of the page */
+  overscroll-behavior: none;
   -webkit-text-size-adjust: 100%;
 }
 
