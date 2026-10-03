@@ -15,10 +15,10 @@ export type Experience = {
 export const profile = {
   name: 'Patrizio Di Bartolomeo',
   logo: 'P-DB',
-  role: 'Lead Frontend & UI Engineer',
+  role: 'Frontend & UI Engineer',
   location: 'Rome, Italy',
   intro:
-    'Lead Frontend & UI Engineer with over 10 years of experience building scalable design systems, multi-platform component libraries and modern web architectures.',
+    'Frontend & UI Engineer with over 10 years of experience building scalable design systems, multi-platform component libraries and modern web architectures.',
   bio: [
     'I have a proven track record of leading design system implementations and driving WCAG accessibility standards across both web and mobile applications.',
     'I bridge design and engineering to deliver consistent, accessible and high-craft digital products — from Figma tokens to production components.',
