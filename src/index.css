@@ -949,7 +949,14 @@ main > .section {
 }
 
 .site-footer__copy {
+  /* White tag, like the hero's blue tags; sits above the grain to stay clean */
+  position: relative;
+  z-index: 2;
+  display: inline-block;
   margin-top: 3rem;
-  color: var(--muted);
+  padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--black);
+  background: var(--white);
 }
