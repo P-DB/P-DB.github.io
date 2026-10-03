@@ -318,6 +318,7 @@ main > .section {
 }
 
 .hero__title {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: clamp(0.75rem, 2vw, 1.5rem);
@@ -349,6 +350,16 @@ main > .section {
   text-shadow:
     calc(var(--split) * -1) 0 0.02em var(--glitch-violet),
     var(--split) 0 0.02em var(--glitch-indigo);
+}
+
+/* Phones/tablets: the boxed logo spans the full content width. The box is
+   ~2.85em wide (letters + padding + frame), so size the type from the width. */
+@media (max-width: 48rem) {
+  .hero__logo {
+    align-self: stretch;
+    text-align: center;
+    font-size: calc(100cqi / 2.9);
+  }
 }
 
 /* Violet and indigo copies of the frame, offset like the letters' ghosts */
