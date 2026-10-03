@@ -131,7 +131,6 @@ main:focus {
 }
 
 /* ---------- Grain ---------- */
-.site-header::before,
 .hero::before,
 .site-footer::before {
   content: '';
@@ -145,7 +144,6 @@ main:focus {
 
 /* No grain on touch devices: keeps rendering light on phones */
 @media (hover: none), (pointer: coarse) {
-  .site-header::before,
   .hero::before,
   .site-footer::before {
     content: none;
@@ -154,7 +152,6 @@ main:focus {
 
 /* Desktop only: the grain shifts like film */
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .site-header::before,
   .hero::before,
   .site-footer::before {
     animation: grain 0.8s steps(1) infinite;
