@@ -20,7 +20,7 @@ export const profile = {
   intro:
     'Frontend & UI Engineer with over 10 years of experience building scalable design systems, multi-platform component libraries and modern web architectures.',
   bio: [
-    'I have a proven track record of leading design system implementations and driving WCAG accessibility standards across both web and mobile applications.',
+    'I build design system foundations with reusable components and drive WCAG accessibility standards across web and mobile applications.',
     'I bridge design and engineering to deliver consistent, accessible and high-craft digital products — from Figma tokens to production components.',
   ],
   // Phrases highlighted as tags in the first bio paragraph
