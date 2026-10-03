@@ -31,7 +31,10 @@ export const profile = {
     { code: 'EN', name: 'English', level: 'Professional working proficiency [B2]' },
   ],
   email: 'dibartolomeo.patrizio@gmail.com',
-  links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/p-db' }],
+  links: [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/p-db' },
+    { label: 'Behance', href: 'https://www.behance.net/patriziodibartolomeo' },
+  ],
 }
 
 export const experiences: Experience[] = [
