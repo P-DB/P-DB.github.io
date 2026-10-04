@@ -401,9 +401,9 @@ main > .section {
   }
 }
 
-/* The SVG displacement filter is costly to re-render; mobile WebKit (all iOS
-   browsers) can crash and reload the tab with it, so desktop pointers only */
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+/* SVG displacement filter: the wavy tearing. Applied on every device; the
+   heavy full-screen grain is what stays desktop-only for mobile performance */
+@media (prefers-reduced-motion: no-preference) {
   .hero__logo,
   .hero__intro::after {
     filter: url(#glitch);
