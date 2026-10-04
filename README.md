@@ -75,7 +75,11 @@ public/
 
 ## Deployment
 
-`npm run build` outputs a static site in `dist/` that can be hosted anywhere: Vercel, Netlify, GitHub Pages or Cloudflare Pages. Once there's a domain, add `og:url` and `og:image` to `index.html` for rich link previews.
+The site is live at **https://p-db.github.io/portfolio/**.
+
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which installs, lints, builds and publishes `dist/` to GitHub Pages. Production builds use the `/portfolio/` base path (see [`vite.config.ts`](vite.config.ts)); the dev server still runs at `/`.
+
+The social preview image is [`public/og-image.jpg`](public/og-image.jpg) (1200×630). If the site moves to another URL, update `og:url`, `og:image`, `twitter:image` and the canonical link in `index.html`.
 
 ## License
 
