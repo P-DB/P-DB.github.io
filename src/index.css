@@ -954,6 +954,8 @@ main > .section {
   font-size: clamp(1rem, 3.5vw, 1.75rem);
   font-weight: 700;
   border: 3px solid var(--white);
+  /* Solid black so the address sits on clean black above the grain */
+  background: var(--black);
   box-shadow: var(--shadow);
   text-decoration: none;
   overflow-wrap: anywhere;
