@@ -317,7 +317,7 @@ main > .section {
 
 .hero__eyebrow {
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   padding: 0.25rem 0.75rem;
   background: var(--blue);
   color: var(--white);
