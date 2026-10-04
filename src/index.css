@@ -131,12 +131,14 @@ main:focus {
 }
 
 /* ---------- Grain ---------- */
+/* Sits behind the content (z-index -1 inside each isolated section), so only
+   the black background is grainy, never the text or boxes */
 .hero::before,
 .site-footer::before {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
   background-image: var(--grain-violet), var(--grain-blue), var(--grain);
   background-size: 220px, 260px, 160px;
@@ -922,6 +924,7 @@ main > .section {
 /* ---------- Footer ---------- */
 .site-footer {
   position: relative;
+  isolation: isolate;
   /* Full-bleed background, content aligned with main */
   padding-block: clamp(3rem, 8vw, 6rem) 2rem;
   padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
@@ -976,9 +979,7 @@ main > .section {
 }
 
 .site-footer__copy {
-  /* White tag, like the hero's blue tags; sits above the grain to stay clean */
-  position: relative;
-  z-index: 2;
+  /* White tag, like the hero's blue tags */
   display: inline-block;
   margin-top: 3rem;
   padding: 0.25rem 0.75rem;
