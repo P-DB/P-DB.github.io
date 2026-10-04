@@ -18,6 +18,8 @@ function highlight(text: string, phrases: string[]) {
 
 const [lead, ...rest] = profile.bio
 
+const year = new Date().getFullYear()
+
 function App() {
   return (
     <>
@@ -139,7 +141,7 @@ function App() {
             </li>
           ))}
         </ul>
-        <p className="site-footer__copy">© {new Date().getFullYear()} {profile.name}</p>
+        <p className="site-footer__copy">© {year} {profile.name}</p>
       </footer>
     </>
   )
