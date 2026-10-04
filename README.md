@@ -75,9 +75,9 @@ public/
 
 ## Deployment
 
-The site is live at **https://p-db.github.io/portfolio/**.
+The site is live at **https://p-db.github.io/**.
 
-Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which installs, lints, builds and publishes `dist/` to GitHub Pages. Production builds use the `/portfolio/` base path (see [`vite.config.ts`](vite.config.ts)); the dev server still runs at `/`.
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which installs, lints, builds and publishes `dist/` to GitHub Pages. The repository is named `P-DB.github.io`, so GitHub serves it at the domain root and no base path is needed.
 
 The social preview image is [`public/og-image.jpg`](public/og-image.jpg) (1200×630). If the site moves to another URL, update `og:url`, `og:image`, `twitter:image` and the canonical link in `index.html`.
 
