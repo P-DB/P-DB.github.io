@@ -462,11 +462,13 @@ main > .section {
 }
 
 .hero__intro {
-  max-width: 44ch;
+  /* Solid black box so the text sits on clean black above the grain */
+  max-width: calc(44ch + 3rem + 6px); /* text measure + padding + border */
   margin-top: clamp(2rem, 5vw, 3rem);
-  padding-left: 1.25rem;
+  padding: 1.25rem 1.5rem;
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   line-height: 1.5;
+  background: var(--black);
   border-left: 6px solid var(--blue);
 }
 
