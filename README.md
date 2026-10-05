@@ -1,6 +1,6 @@
 # P-DB — Portfolio
 
-Personal portfolio of **Patrizio Di Bartolomeo**, Frontend & UI Engineer based in Rome.
+Personal portfolio of **Patrizio Di Bartolomeo**, Frontend & UI Developer based in Rome.
 
 A single-page, brutalist site: thick black borders, hard blue shadows, a black hero with a glitching boxed logo, and a film-grain texture on the dark sections. Built to be fast, responsive and accessible.
 
