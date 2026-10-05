@@ -275,6 +275,18 @@ main > .section {
   margin-bottom: 2rem;
 }
 
+/* Decorative square brackets around section titles. The "/ ''" alt text keeps
+   screen readers from announcing them; the first declaration is the fallback. */
+.section__title::before {
+  content: '[';
+  content: '[' / '';
+}
+
+.section__title::after {
+  content: ']';
+  content: ']' / '';
+}
+
 /* Full-bleed light grey band without a separator line */
 .section--grey {
   border-top: 0;
