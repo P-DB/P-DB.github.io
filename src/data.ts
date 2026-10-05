@@ -28,7 +28,7 @@ export const profile = {
   yearsOfExperience: '10+',
   languages: [
     { code: 'IT', name: 'Italian', level: 'Native' },
-    { code: 'EN', name: 'English', level: 'Professional working proficiency [B2]' },
+    { code: 'EN', name: 'English', level: 'Professional working proficiency' },
   ],
   email: 'dibartolomeo.patrizio@gmail.com',
   links: [
