@@ -124,7 +124,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: 'Unframed',
-    description: 'My open-source library of accessible web components that work in any framework, or none.',
+    description: 'Accessible, themeable web components that work everywhere. My open-source side project.',
     link: { label: 'View docs', href: 'https://p-db.github.io/unframed-ui/' },
   },
 ]
