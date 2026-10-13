@@ -629,6 +629,68 @@ main > .section {
   text-transform: uppercase;
 }
 
+/* ---------- Project showcase ---------- */
+/* Slim strip in the style of the project's own header (Unframed): purple
+   gradient, system font, white logo box. */
+.showcase {
+  --focus: #ad8fe3;
+  scroll-margin-top: 4rem;
+  color: #f7f6f9;
+  background: linear-gradient(100deg, #6930c3 0%, #3b1a73 35%, #150c22 70%, #0a0b08 100%);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.showcase__strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  /* Full-width band; padding lines content up with the other sections */
+  padding: 1.25rem max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+}
+
+.showcase__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
+}
+
+.showcase__logo {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 1rem;
+  color: #0a0b08;
+  background: var(--white);
+}
+
+.showcase__description {
+  flex: 1 1 20rem;
+  color: rgb(247 246 249 / 0.85);
+}
+
+.showcase__link {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+  color: #f7f6f9;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid rgb(247 246 249 / 0.6);
+}
+
+.showcase__link:hover {
+  color: #0a0b08;
+  background: var(--white);
+  border-color: var(--white);
+}
+
 /* ---------- Jobs ---------- */
 /* One bordered block like the skills grid; each row is an accordion */
 .jobs {

@@ -114,6 +114,20 @@ export const experiences: Experience[] = [
   },
 ]
 
+export type Project = {
+  name: string
+  description: string
+  link: { label: string; href: string }
+}
+
+export const projects: Project[] = [
+  {
+    name: 'Unframed',
+    description: 'My open-source library of accessible web components that work in any framework, or none.',
+    link: { label: 'View docs', href: 'https://p-db.github.io/unframed-ui/' },
+  },
+]
+
 export const skills: { group: string; items: string[] }[] = [
   {
     group: 'Frontend Development',

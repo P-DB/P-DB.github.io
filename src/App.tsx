@@ -1,6 +1,7 @@
-import { awards, experiences, profile, skills } from './data'
+import { awards, experiences, profile, projects, skills } from './data'
 import { ExperienceItem } from './components/ExperienceItem'
 import { GlitchFilter } from './components/GlitchFilter'
+import { ProjectShowcase } from './components/ProjectShowcase'
 
 // Wrap each listed phrase found in `text` in a <mark> tag
 function highlight(text: string, phrases: string[]) {
@@ -56,6 +57,10 @@ function App() {
           </h1>
           <p className="hero__intro">{profile.intro}</p>
         </section>
+
+        {projects.map((p, i) => (
+          <ProjectShowcase key={p.name} project={p} id={i === 0 ? 'projects' : `project-${i}`} />
+        ))}
 
         <section className="section section--grey" id="about" aria-labelledby="about-title">
           <h2 id="about-title" className="section__title">About</h2>
