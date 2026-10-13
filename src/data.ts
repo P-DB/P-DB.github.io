@@ -32,6 +32,7 @@ export const profile = {
   ],
   email: 'dibartolomeo.patrizio@gmail.com',
   links: [
+    { label: 'Unframed', href: 'https://p-db.github.io/unframed-ui/' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/p-db' },
     { label: 'Behance', href: 'https://www.behance.net/patriziodibartolomeo' },
   ],
