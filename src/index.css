@@ -643,7 +643,8 @@ main > .section {
 .showcase__strip {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  /* Baseline, not center: the wordmark, text and button share one text line */
+  align-items: baseline;
   gap: 0.75rem 1.5rem;
   /* Full-width band; padding lines content up with the other sections */
   padding: 1.25rem max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));

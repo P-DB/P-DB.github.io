@@ -21,7 +21,6 @@ export function ProjectShowcase({ project, id }: Props) {
         <p className="showcase__description">{project.description}</p>
         <a className="showcase__link" href={project.link.href} target="_blank" rel="noreferrer">
           {project.link.label}
-          <span aria-hidden="true"> →</span>
           <span className="visually-hidden"> for {project.name} (opens in a new tab)</span>
         </a>
       </div>
