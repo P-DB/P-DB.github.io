@@ -117,6 +117,7 @@ export const experiences: Experience[] = [
 
 export type Project = {
   name: string
+  logoPaths: string[] // SVG path data for the project's mark, in a 32×32 box
   description: string
   link: { label: string; href: string }
 }
@@ -124,6 +125,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: 'Unframed',
+    // Unframed's mark: a square with a U cut out of its top, and the cut-out
+    // piece rising out of it (from unframed-ui apps/website Logo.tsx)
+    logoPaths: ['M3 7h5v11a8 8 0 0 0 16 0V7h5v24H3z', 'M13 2h6v16a3 3 0 0 1-6 0z'],
     description: 'Accessible, themeable web components that work everywhere. My open-source side project.',
     link: { label: 'View docs', href: 'https://p-db.github.io/unframed-ui/' },
   },

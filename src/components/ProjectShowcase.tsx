@@ -3,7 +3,7 @@ import type { Project } from '../data'
 type Props = { project: Project; id: string }
 
 // Slim strip styled like the project's own header bar (Unframed's purple
-// gradient): logo, one-line description and a link to its docs.
+// gradient): logo mark and wordmark, one-line description and a link to its docs.
 export function ProjectShowcase({ project, id }: Props) {
   const titleId = `${id}-title`
 
@@ -11,9 +11,11 @@ export function ProjectShowcase({ project, id }: Props) {
     <section className="showcase" id={id} aria-labelledby={titleId}>
       <div className="showcase__strip">
         <h2 id={titleId} className="showcase__brand">
-          <span className="showcase__logo" aria-hidden="true">
-            {project.name.charAt(0)}
-          </span>
+          <svg className="showcase__logo" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" focusable="false">
+            {project.logoPaths.map((d) => (
+              <path key={d} d={d} />
+            ))}
+          </svg>
           {project.name}
         </h2>
         <p className="showcase__description">{project.description}</p>

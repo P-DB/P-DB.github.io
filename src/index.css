@@ -631,7 +631,7 @@ main > .section {
 
 /* ---------- Project showcase ---------- */
 /* Slim strip in the style of the project's own header (Unframed): purple
-   gradient, system font, white logo box. */
+   gradient, system font, white logo mark and wordmark. */
 .showcase {
   --focus: #ad8fe3;
   scroll-margin-top: 4rem;
@@ -651,23 +651,25 @@ main > .section {
 
 .showcase__brand {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  align-items: baseline;
+  gap: 0.35em;
   font-family: inherit;
-  font-size: 1.15rem;
+  font-size: 1.375rem;
   font-weight: 700;
   line-height: 1;
+  letter-spacing: -0.01em;
   text-transform: none;
 }
 
+/* Sized and nudged like Unframed's own header, so the mark's box matches the
+   wordmark's capitals and sits on the baseline */
 .showcase__logo {
-  display: grid;
-  place-items: center;
-  width: 1.9rem;
-  height: 1.9rem;
-  font-size: 1rem;
-  color: #0a0b08;
-  background: var(--white);
+  flex: none;
+  position: relative;
+  top: calc(0.94em / 32);
+  width: 0.94em;
+  height: 0.94em;
+  color: var(--white);
 }
 
 .showcase__description {
