@@ -477,7 +477,7 @@ main > .section {
 /* ---------- About ---------- */
 /* Editorial statement with highlighted phrases, then a facts block */
 .about__lead {
-  max-width: 28ch;
+  /* Spans the full content width, like the facts box below */
   font-size: clamp(1.5rem, 4vw, 2.75rem);
   font-weight: 700;
   line-height: 1.3;
@@ -493,7 +493,6 @@ main > .section {
 }
 
 .about__text {
-  max-width: 60ch;
   margin-top: 1.5rem;
   font-size: 1.125rem;
 }
