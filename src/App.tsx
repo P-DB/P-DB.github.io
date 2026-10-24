@@ -50,12 +50,9 @@ function App() {
           <h1 id="hero-title" className="hero__title">
             <span className="hero__name">{profile.name}</span>
             <span className="hero__logo" aria-hidden="true">
-              <span className="hero__logo-text">
-                {profile.logo}
-              </span>
+              <span className="hero__logo-text">{profile.logo}</span>
             </span>
           </h1>
-          <p className="hero__intro">{profile.intro}</p>
         </section>
 
         <section className="section section--grey" id="about" aria-labelledby="about-title">

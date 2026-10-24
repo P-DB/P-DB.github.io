@@ -302,7 +302,7 @@ main > .section {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(3rem, 12vw, 9rem);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
   scroll-margin-top: 4rem;
   /* Full-width band; padding lines its content up with the sections */
   padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
@@ -360,7 +360,8 @@ main > .section {
   outline: var(--frame) solid var(--white);
   outline-offset: calc(var(--frame) * -1);
   font-family: var(--font-display);
-  font-size: clamp(4.25rem, 21vw, 15rem);
+  /* Capped by the column width (the box is ~2.9em wide) */
+  font-size: min(clamp(4.25rem, 21vw, 15rem), calc(100cqi / 2.9));
   line-height: 0.8;
   letter-spacing: -0.03em;
 }
@@ -417,8 +418,7 @@ main > .section {
 /* SVG displacement filter: the wavy tearing. Applied on every device; the
    heavy full-screen grain is what stays desktop-only for mobile performance */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__logo,
-  .hero__intro::after {
+  .hero__logo {
     filter: url(#glitch);
   }
 }
@@ -467,52 +467,13 @@ main > .section {
   padding: 0.25rem 0.75rem;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: clamp(1.1rem, 4vw, 2.25rem);
+  /* Capped by the column width so the full name stays on one line */
+  font-size: min(clamp(1.1rem, 4vw, 2.25rem), calc(100cqi / 16));
   line-height: 1.6;
   letter-spacing: 0.05em;
+  white-space: nowrap;
   background: var(--blue);
   color: var(--white);
-}
-
-.hero__intro {
-  /* Solid black box so the text sits on clean black above the grain */
-  max-width: calc(44ch + 3rem + 6px); /* text measure + padding + border */
-  margin-top: clamp(2rem, 5vw, 3rem);
-  padding: 1.25rem 1.5rem;
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  line-height: 1.5;
-  background: var(--black);
-  border-left: 6px solid var(--blue);
-}
-
-/* Terminal-style block cursor (decorative; static when motion is reduced) */
-.hero__intro::after {
-  content: '';
-  display: inline-block;
-  width: 0.6em;
-  height: 1.1em;
-  margin-left: 0.3em;
-  vertical-align: text-bottom;
-  /* Same glitch as the logo: white block with violet/indigo ghosts.
-     --split is scaled up because the cursor is much smaller than the logo. */
-  background: var(--white);
-  box-shadow:
-    calc(var(--split) * -4) 0 0 var(--glitch-violet),
-    calc(var(--split) * 4) 0 0 var(--glitch-indigo);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hero__intro::after {
-    animation:
-      cursor-blink 1.1s steps(1) infinite,
-      glitch-split 4s steps(1) infinite;
-  }
-}
-
-@keyframes cursor-blink {
-  50% {
-    opacity: 0;
-  }
 }
 
 /* ---------- About ---------- */

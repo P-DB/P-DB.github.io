@@ -17,8 +17,6 @@ export const profile = {
   logo: 'P-DB',
   role: 'Frontend & UI Developer',
   location: 'Rome, Italy',
-  intro:
-    'Frontend & UI Developer with over 10 years of experience building scalable design systems, multi-platform component libraries and modern web architectures.',
   bio: [
     'I build design system foundations with reusable components and drive WCAG accessibility standards across web and mobile applications.',
     'I bridge design and engineering to deliver consistent, accessible and high-craft digital products — from Figma tokens to production components.',
