@@ -271,7 +271,7 @@ main > .section {
 
 .section__title {
   color: var(--blue);
-  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
   margin-bottom: 2rem;
 }
 
