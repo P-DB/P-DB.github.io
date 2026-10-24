@@ -201,10 +201,18 @@ export const awards = [
     year: '2011',
     title: 'PromaxBDA World Gold',
     text: 'Design Award for NBC Universal / Steel TV interactive web animation.',
+    link: {
+      label: 'See Human Target on Behance',
+      href: 'https://www.behance.net/gallery/20127791/Steel-TV-Human-Target-Advergame',
+    },
   },
   {
     year: '2008',
     title: 'Interactive Key Award',
     text: 'Best Advergame for NBC Universal / Steel TV.',
+    link: {
+      label: 'See Chuck on Behance',
+      href: 'https://www.behance.net/gallery/20296377/Steel-TV-Chuck-Advergame',
+    },
   },
 ]

@@ -163,6 +163,10 @@ function App() {
                 <h3 className="award__title">{a.title}</h3>
                 <p className="award__year">{a.year}</p>
                 <p className="award__text">{a.text}</p>
+                <a className="award__link" href={a.link.href} target="_blank" rel="noreferrer">
+                  {a.link.label}
+                  <span className="visually-hidden"> (opens in a new tab)</span>
+                </a>
               </li>
             ))}
           </ul>

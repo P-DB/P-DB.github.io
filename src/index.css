@@ -1012,6 +1012,15 @@ main > .section {
   line-height: 1.1;
 }
 
+/* Same treatment as the "Visit Soldo" link in Work experience */
+.award__link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 0.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   position: relative;
