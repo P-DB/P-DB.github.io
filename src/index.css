@@ -23,6 +23,9 @@
   --glitch-indigo: #4b4dff;
   --border: 3px solid var(--black);
   --shadow: 6px 6px 0 var(--blue);
+  --shadow-offset: 6px;
+  /* One vertical rhythm for the gaps between and inside sections */
+  --space: clamp(2rem, 3.5vw, 2.75rem);
   --gutter: clamp(1rem, 4vw, 3rem);
   --max: 72rem;
   --font-display: 'Archivo Black', 'Arial Black', Impact, sans-serif;
@@ -264,12 +267,16 @@ main > .section {
 }
 
 .section {
-  padding-block: clamp(3rem, 8vw, 6rem);
-  border-top: var(--border);
+  /* Sections end with a shadowed block, so add the shadow's offset at the
+     bottom to keep the visible gap equal to --space */
+  padding-block: var(--space) calc(var(--space) + var(--shadow-offset));
   scroll-margin-top: 4rem;
 }
 
 .section__title {
+  /* Pull the capitals up to the section's top edge: big display type has a
+     little built-in space above its caps */
+  margin-top: -0.125em;
   color: var(--blue);
   font-size: clamp(2rem, 5.5vw, 3.5rem);
   margin-bottom: 2rem;
@@ -287,16 +294,11 @@ main > .section {
   content: ']' / '';
 }
 
-/* Full-bleed light grey band without a separator line */
+/* Full-bleed light grey band */
 .section--grey {
-  border-top: 0;
   background: var(--grey-light);
   box-shadow: 0 0 0 100vmax var(--grey-light);
   clip-path: inset(0 -100vmax);
-}
-
-.section--grey + .section {
-  border-top: 0;
 }
 
 
@@ -322,10 +324,6 @@ main > .section {
   right: 0;
   height: 3px;
   background: var(--blue);
-}
-
-.hero + .section {
-  border-top: 0;
 }
 
 .hero__eyebrow {
@@ -503,7 +501,7 @@ main > .section {
 .facts {
   display: grid;
   grid-template-columns: 1fr;
-  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+  margin: var(--space) 0 0;
   background: var(--white);
   border: var(--border);
   box-shadow: var(--shadow);
@@ -987,7 +985,7 @@ main > .section {
   position: relative;
   isolation: isolate;
   /* Full-bleed background, content aligned with main */
-  padding-block: clamp(3rem, 8vw, 6rem) 2rem;
+  padding-block: var(--space) 2rem;
   padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
   background: var(--black);
   color: var(--white);
@@ -1002,6 +1000,7 @@ main > .section {
 }
 
 .site-footer__title {
+  margin-top: -0.125em;
   color: var(--violet);
   font-size: clamp(2.5rem, 10vw, 7rem);
 }
