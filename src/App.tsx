@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { awards, experiences, profile, projects, skills } from './data'
 import { ExperienceItem } from './components/ExperienceItem'
 import { GlitchFilter } from './components/GlitchFilter'
@@ -22,6 +23,13 @@ const [lead, ...rest] = profile.bio
 const year = new Date().getFullYear()
 
 function App() {
+  // The sections only exist once React has rendered, so the browser can't
+  // jump to a #section in the address on its own: do it after mounting
+  useEffect(() => {
+    if (!location.hash) return
+    document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({ behavior: 'instant' })
+  }, [])
+
   return (
     <>
       <a className="skip-link" href="#main">
