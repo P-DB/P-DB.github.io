@@ -26,8 +26,6 @@
   --shadow-offset: 6px;
   /* One vertical rhythm for the gaps between and inside sections */
   --space: clamp(2rem, 3.5vw, 2.75rem);
-  /* Room left above sections when jumping to them, for the sticky header */
-  --header-offset: 4rem;
   --gutter: clamp(1rem, 4vw, 3rem);
   --max: 72rem;
   --font-display: 'Archivo Black', 'Arial Black', Impact, sans-serif;
@@ -207,19 +205,6 @@ main:focus {
   --focus: var(--violet);
 }
 
-/* Phones and tablets: the header scrolls away with the page. Mobile browsers
-   (notably Chrome on iOS) move their own toolbars while scrolling, which left
-   a sticky header pinned over the top of the hero. */
-@media (hover: none), (pointer: coarse) {
-  :root {
-    --header-offset: 0px;
-  }
-
-  .site-header {
-    position: relative;
-  }
-}
-
 .site-header__logo {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -292,7 +277,7 @@ main > .section {
   /* Sections end with a shadowed block, so add the shadow's offset at the
      bottom to keep the visible gap equal to --space */
   padding-block: var(--space) calc(var(--space) + var(--shadow-offset));
-  scroll-margin-top: var(--header-offset);
+  scroll-margin-top: 4rem;
 }
 
 .section__title {
@@ -327,7 +312,7 @@ main > .section {
 /* ---------- Hero ---------- */
 .hero {
   padding-block: clamp(2.5rem, 6vw, 4.5rem);
-  scroll-margin-top: var(--header-offset);
+  scroll-margin-top: 4rem;
   /* Full-width band; padding lines its content up with the sections */
   padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
   color: var(--white);
@@ -1012,7 +997,7 @@ main > .section {
   color: var(--white);
   border-top: 3px solid var(--blue);
   --focus: var(--violet);
-  scroll-margin-top: var(--header-offset);
+  scroll-margin-top: 4rem;
 }
 
 .site-footer a:hover {
