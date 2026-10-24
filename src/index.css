@@ -44,7 +44,7 @@
 html {
   scroll-behavior: smooth;
   /* Black canvas: the overscroll (bounce) area matches the black header and
-     footer; body keeps the white page background */
+     footer */
   background: var(--black);
   -webkit-text-size-adjust: 100%;
 }
@@ -63,7 +63,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  /* Black too: iPhone browsers paint their toolbar areas with the body
+     colour, so it must match the black header and footer. The white page
+     background lives on main instead. */
+  background: var(--black);
   color: var(--fg);
   font-family: var(--font-mono);
   font-size: 1rem;
@@ -99,6 +102,10 @@ a:hover {
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
+}
+
+main {
+  background: var(--bg);
 }
 
 main:focus {
