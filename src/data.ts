@@ -118,8 +118,9 @@ export const experiences: Experience[] = [
 export type Project = {
   name: string
   logoPaths: string[] // SVG path data for the project's mark, in a 32×32 box
-  description: string
-  link: { label: string; href: string }
+  // One entry per paragraph; `highlights` are phrases shown as blue tags
+  description: { title: string; text: string; highlights: string[] }[]
+  links: { label: string; href: string }[]
 }
 
 export const projects: Project[] = [
@@ -128,8 +129,24 @@ export const projects: Project[] = [
     // Unframed's mark: a square with a U cut out of its top, and the cut-out
     // piece rising out of it (from unframed-ui apps/website Logo.tsx)
     logoPaths: ['M3 7h5v11a8 8 0 0 0 16 0V7h5v24H3z', 'M13 2h6v16a3 3 0 0 1-6 0z'],
-    description: 'Accessible, themeable web components that work everywhere. My open-source side project.',
-    link: { label: 'View docs', href: 'https://p-db.github.io/unframed-ui/' },
+    description: [
+      {
+        title: 'What it is',
+        text: 'My open-source library of accessible, themeable web components, built with Lit and TypeScript. They work in React, Vue, Angular, Svelte or plain HTML, follow WAI-ARIA patterns with full keyboard support, and behave like native controls in forms.',
+        highlights: ['accessible, themeable web components', 'WAI-ARIA patterns'],
+      },
+      {
+        title: 'How to use it',
+        text: 'Install them from npm, or copy a component into your project with one command and own the code. Every component is documented with live examples in Storybook.',
+        highlights: ['own the code', 'live examples'],
+      },
+    ],
+    links: [
+      { label: 'Visit Unframed', href: 'https://p-db.github.io/unframed-ui/' },
+      { label: 'Storybook', href: 'https://p-db.github.io/unframed-ui/storybook/' },
+      { label: 'npm', href: 'https://www.npmjs.com/package/@unframed/core' },
+      { label: 'GitHub', href: 'https://github.com/P-DB/unframed-ui' },
+    ],
   },
 ]
 

@@ -1,14 +1,14 @@
 import { awards, experiences, profile, projects, skills } from './data'
 import { ExperienceItem } from './components/ExperienceItem'
 import { GlitchFilter } from './components/GlitchFilter'
-import { ProjectShowcase } from './components/ProjectShowcase'
 
-// Wrap each listed phrase found in `text` in a <mark> tag
+// Wrap each listed phrase found in `text` in a <mark> tag (blue tag style)
 function highlight(text: string, phrases: string[]) {
+  if (phrases.length === 0) return text
   const pattern = new RegExp(`(${phrases.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi')
   return text.split(pattern).map((part, i) =>
     i % 2 === 1 ? (
-      <mark key={i} className="about__mark">
+      <mark key={i} className="mark">
         {part}
       </mark>
     ) : (
@@ -58,10 +58,6 @@ function App() {
           <p className="hero__intro">{profile.intro}</p>
         </section>
 
-        {projects.map((p, i) => (
-          <ProjectShowcase key={p.name} project={p} id={i === 0 ? 'projects' : `project-${i}`} />
-        ))}
-
         <section className="section section--grey" id="about" aria-labelledby="about-title">
           <h2 id="about-title" className="section__title">About</h2>
           <p className="about__lead">{highlight(lead, profile.bioHighlights)}</p>
@@ -88,6 +84,48 @@ function App() {
               </dd>
             </div>
           </dl>
+        </section>
+
+        <section className="section" id="projects" aria-labelledby="projects-title">
+          <h2 id="projects-title" className="section__title">Side projects</h2>
+          <ul className="projects">
+            {projects.map((p) => (
+              <li key={p.name} className="project">
+                <h3 className="project__name">
+                  <svg
+                    className="project__logo"
+                    viewBox="0 0 32 32"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    {p.logoPaths.map((d) => (
+                      <path key={d} d={d} />
+                    ))}
+                  </svg>
+                  {p.name}
+                </h3>
+                {p.description.map((d) => (
+                  <div key={d.title} className="project__block">
+                    <h4 className="project__subtitle">{d.title}</h4>
+                    <p>{highlight(d.text, d.highlights)}</p>
+                  </div>
+                ))}
+                <ul className="project__links">
+                  {p.links.map((l) => (
+                    <li key={l.href}>
+                      <a className="project__link" href={l.href} target="_blank" rel="noreferrer">
+                        {l.label}
+                        <span className="visually-hidden">
+                          {l.label.includes(p.name) ? '' : ` for ${p.name}`} (opens in a new tab)
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="section" id="work" aria-labelledby="work-title">

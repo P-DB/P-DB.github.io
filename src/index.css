@@ -524,7 +524,8 @@ main > .section {
   line-height: 1.3;
 }
 
-.about__mark {
+/* Highlighted phrases: white on blue tags (About statement, side projects) */
+.mark {
   padding: 0 0.2em;
   color: var(--white);
   background: var(--blue);
@@ -629,69 +630,79 @@ main > .section {
   text-transform: uppercase;
 }
 
-/* ---------- Project showcase ---------- */
-/* Slim strip in the style of the project's own header (Unframed): purple
-   gradient, system font, white logo mark and wordmark. */
-.showcase {
-  --focus: #ad8fe3;
-  scroll-margin-top: 4rem;
-  color: #f7f6f9;
-  background: linear-gradient(100deg, #6930c3 0%, #3b1a73 35%, #150c22 70%, #0a0b08 100%);
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+/* ---------- Side projects ---------- */
+/* One bordered block split into cells, like the awards grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--white);
+  border: var(--border);
+  box-shadow: var(--shadow);
 }
 
-.showcase__strip {
+.project {
   display: flex;
-  flex-wrap: wrap;
-  /* Baseline, not center: the wordmark, text and button share one text line */
-  align-items: baseline;
-  gap: 0.75rem 1.5rem;
-  /* Full-width band; padding lines content up with the other sections */
-  padding: 1.25rem max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 1.5px solid var(--black);
 }
 
-.showcase__brand {
+/* Project mark sits on the name's baseline, a little taller than its capitals */
+.project__name {
   display: flex;
   align-items: baseline;
-  gap: 0.35em;
-  font-family: inherit;
-  font-size: 1.625rem;
-  font-weight: 700;
+  gap: 0.3em;
+  color: var(--blue);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   line-height: 1;
-  letter-spacing: -0.01em;
-  text-transform: none;
 }
 
-/* Sized and nudged like Unframed's own header, so the mark's box matches the
-   wordmark's capitals and sits on the baseline */
-.showcase__logo {
+.project__logo {
   flex: none;
   position: relative;
-  top: calc(0.94em / 32);
-  width: 0.94em;
-  height: 0.94em;
-  color: var(--white);
+  top: calc(0.95em / 32);
+  width: 0.95em;
+  height: 0.95em;
 }
 
-.showcase__description {
-  flex: 1 1 20rem;
-  color: rgb(247 246 249 / 0.85);
+.project__block {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 65ch;
 }
 
-.showcase__link {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  font-weight: 600;
-  color: #f7f6f9;
-  text-decoration: none;
-  white-space: nowrap;
-  border: 1px solid rgb(247 246 249 / 0.6);
+.project__subtitle {
+  /* h4 isn't covered by the global heading style, so set it here */
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
-.showcase__link:hover {
-  color: #0a0b08;
-  background: var(--white);
-  border-color: var(--white);
+.project__block + .project__block {
+  margin-top: 0.75rem;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Same treatment as the "Visit Soldo" link in Work experience */
+.project__link {
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* ---------- Jobs ---------- */
