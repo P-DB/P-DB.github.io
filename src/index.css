@@ -1,10 +1,9 @@
 /* ---------- Tokens ---------- */
 :root {
-  /* Palette: black, white, electric blue, violet (on black), yellow (on white), light grey */
+  /* Palette: black, white, electric blue, violet, light grey */
   --black: #000;
   --white: #fff;
   --blue: #1f4dff;
-  --yellow: #f5f53c;
   --violet: #8b5cff;
   --grey: #c8c8c8;
   --grey-light: #ececec;
@@ -95,7 +94,7 @@ a {
 }
 
 a:hover {
-  background: var(--yellow);
+  background: var(--violet);
   color: var(--black);
 }
 
