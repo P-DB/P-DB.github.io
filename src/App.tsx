@@ -110,12 +110,14 @@ function App() {
                   </svg>
                   {p.name}
                 </h3>
-                {p.description.map((d) => (
-                  <div key={d.title} className="project__block">
-                    <h4 className="project__subtitle">{d.title}</h4>
-                    <p>{highlight(d.text, d.highlights)}</p>
-                  </div>
-                ))}
+                <div className="project__blocks">
+                  {p.description.map((d) => (
+                    <div key={d.title} className="project__block">
+                      <h4 className="project__subtitle">{d.title}</h4>
+                      <p>{highlight(d.text, d.highlights)}</p>
+                    </div>
+                  ))}
+                </div>
                 <ul className="project__links">
                   {p.links.map((l) => (
                     <li key={l.href}>

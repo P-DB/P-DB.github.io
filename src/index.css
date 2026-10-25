@@ -635,10 +635,23 @@ main > .section {
   height: 0.95em;
 }
 
+/* The description paragraphs: stacked on phones, side by side when wide */
+.project__blocks {
+  display: grid;
+  gap: 1.25rem 2.5rem;
+  align-self: stretch;
+}
+
+@media (min-width: 48rem) {
+  .project__blocks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .project__block {
   display: grid;
+  align-content: start;
   gap: 0.35rem;
-  max-width: 65ch;
 }
 
 .project__subtitle {
@@ -649,10 +662,6 @@ main > .section {
   font-size: 1.05rem;
   line-height: 1.2;
   text-transform: uppercase;
-}
-
-.project__block + .project__block {
-  margin-top: 0.75rem;
 }
 
 .project__links {
