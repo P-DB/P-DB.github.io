@@ -886,6 +886,8 @@ main > .section {
   content: '■';
   position: absolute;
   left: 0;
+  font-size: 0.75em;
+  line-height: 2.2;
   color: var(--blue);
 }
 
@@ -954,6 +956,8 @@ main > .section {
 
 .skills__list li::before {
   content: '■ ';
+  font-size: 0.75em;
+  vertical-align: 0.1em;
   color: var(--blue);
 }
 
