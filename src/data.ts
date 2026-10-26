@@ -19,7 +19,8 @@ export const profile = {
   location: 'Rome, Italy',
   bio: [
     'I build design system foundations with reusable components and drive WCAG accessibility standards across web and mobile applications.',
-    'I bridge design and engineering to deliver consistent, accessible and high-craft digital products — from Figma tokens to production components.',
+    'I bridge design and engineering, turning design decisions into tokens, components and guidelines that teams can build on with confidence.',
+    'I work with designers on interaction behaviour, finding the balance between a great experience and solid performance.',
   ],
   // Phrases highlighted as tags in the first bio paragraph
   bioHighlights: ['design system', 'WCAG accessibility'],
