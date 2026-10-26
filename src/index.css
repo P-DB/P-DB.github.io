@@ -338,6 +338,21 @@ main > .section {
   letter-spacing: 0.05em;
 }
 
+/* Phones: a smaller tag, with the location on its own line instead of the slash */
+@media (max-width: 47.99rem) {
+  .hero__eyebrow {
+    font-size: 0.875rem;
+  }
+
+  .hero__sep {
+    display: none;
+  }
+
+  .hero__location {
+    display: block;
+  }
+}
+
 .hero__title {
   container-type: inline-size;
   display: flex;
@@ -473,6 +488,15 @@ main > .section {
   white-space: nowrap;
   background: var(--blue);
   color: var(--white);
+}
+
+/* Phones: the name bar spans the logo's width, with a larger name that
+   still fits on one line */
+@media (max-width: 48rem) {
+  .hero__name {
+    align-self: stretch;
+    font-size: min(1.375rem, calc(100cqi / 15.5));
+  }
 }
 
 /* ---------- About ---------- */

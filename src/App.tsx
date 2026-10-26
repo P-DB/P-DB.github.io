@@ -53,7 +53,9 @@ function App() {
         <section className="hero" id="top" aria-labelledby="hero-title">
           <GlitchFilter />
           <p className="hero__eyebrow">
-            {profile.role} / {profile.location}
+            {profile.role}
+            <span className="hero__sep"> / </span>
+            <span className="hero__location">{profile.location}</span>
           </p>
           <h1 id="hero-title" className="hero__title">
             <span className="hero__name">{profile.name}</span>
