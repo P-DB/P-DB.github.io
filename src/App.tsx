@@ -63,7 +63,7 @@ function App() {
           </h1>
         </section>
 
-        <section className="section section--grey" id="about" aria-labelledby="about-title">
+        <section className="section" id="about" aria-labelledby="about-title">
           <h2 id="about-title" className="section__title">About</h2>
           <p className="about__lead">{highlight(lead, profile.bioHighlights)}</p>
           {rest.map((p) => (
@@ -162,7 +162,7 @@ function App() {
           </div>
         </section>
 
-        <section className="section section--grey" id="awards" aria-labelledby="awards-title">
+        <section className="section" id="awards" aria-labelledby="awards-title">
           <h2 id="awards-title" className="section__title">Awards</h2>
           <ul className="awards">
             {awards.map((a) => (

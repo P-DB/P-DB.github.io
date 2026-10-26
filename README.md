@@ -59,7 +59,7 @@ public/
 
 ## Design notes
 
-- **Palette**: black, white, electric blue `#1f4dff`, violet `#8b5cff` for accents and hovers, light grey bands. All defined as tokens at the top of `index.css`.
+- **Palette**: black, white, electric blue `#1f4dff`, violet `#8b5cff` for accents and hovers, a light grey `#eee` page background. All defined as tokens at the top of `index.css`.
 - **Hero glitch**: the logo and cursor combine a CSS colour split (violet/indigo) with an SVG displacement filter that tears in bursts every 4 seconds.
 - **Film grain**: the hero and footer have a grain texture made of grey noise with violet and blue specks. It sits behind the content, so only the background is grainy.
 - **Mobile performance**: the SVG filter and the grain are desktop-only. On touch devices they are expensive enough to make iOS Safari reload the tab, so phones get the lightweight CSS glitch only.
