@@ -32,7 +32,6 @@ export function ExperienceItem({ item, defaultOpen = false }: Props) {
               {formatDate(item.start)}
             </time>
             <span className="job__end">
-              <span aria-hidden="true">→ </span>
               <span className="visually-hidden"> to </span>
               {item.end ? <time dateTime={item.end}>{end}</time> : end}
             </span>
