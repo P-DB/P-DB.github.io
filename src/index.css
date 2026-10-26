@@ -492,8 +492,20 @@ main > .section {
   box-decoration-break: clone;
 }
 
-.about__text {
+/* The supporting paragraphs: stacked on phones, side by side when wide */
+.about__columns {
+  display: grid;
+  gap: 1rem 2.5rem;
   margin-top: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .about__columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about__text {
   font-size: 1.125rem;
 }
 

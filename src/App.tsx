@@ -66,11 +66,13 @@ function App() {
         <section className="section" id="about" aria-labelledby="about-title">
           <h2 id="about-title" className="section__title">About</h2>
           <p className="about__lead">{highlight(lead, profile.bioHighlights)}</p>
-          {rest.map((p) => (
-            <p key={p} className="about__text">
-              {p}
-            </p>
-          ))}
+          <div className="about__columns">
+            {rest.map((p) => (
+              <p key={p} className="about__text">
+                {p}
+              </p>
+            ))}
+          </div>
           <dl className="facts" aria-label="At a glance">
             <div className="fact">
               <dt className="fact__label">Years building interfaces</dt>
